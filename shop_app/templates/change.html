@@ -1,0 +1,15 @@
+{% extends "base.html"%}
+
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="`Назва" value = '{{product.name}}' >
+        <input type="number" name="price" placeholder="Ціна" value = '{{product.price}}'>
+        <input type="number" name="count" placeholder="Кіл. Товарів" value = '{{product.count}}'>
+        <input type="number" name="discount" placeholder="Знижка" value = '{{product.discount}}'>
+        <textarea name="description" placeholder="Опис">
+            {{product.description}}
+        </textarea>
+        <input type="file" name="image" accept= "image/*" >
+        <button type="submit">Змінити</button>
+    </form>
+{%endblock%}
