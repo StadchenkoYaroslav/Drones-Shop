@@ -1,9 +1,78 @@
 {% extends 'base.html'%}
 
 {% block title%}
-GOLOVNA
+DRONES
 {% endblock %}
 
+{%block links %}
+<link rel="stylesheet" href="{{url_for('home.static', filename = 'css/home.css')}}">
+{%endblock%}
+
+{%block header%}
+    <div id="title">
+        <h1>Технології</h1>
+        <h1>Які змінюють реальність</h1>
+    </div>
+    <img src="{{ url_for('static', filename = 'images/Drone.svg' ) }}" alt="" id="drone">
+    <div id = "to-catalog">
+        <p>Передові технології в одному місці. <br> Обирай найкраще для найважливішого.</p>
+        <button>До каталогу</button>
+    </div>
+    <div class="ellipse" id="elipse-header"></div>
+{%endblock%}
+
 {%block content%}
-<h1>Hello</h1>
+    <div id="aboutUsBlock">
+        <h2 class="title">Про нас</h2>
+        <p>
+            Ми — команда, що об'єднує технології та надійність. <br> 
+            Пропонуємо дрони й тепловізори, перевірені у найскладніших умовах.<br>
+            Обираємо тільки те, чому довіряємо самі.
+        </p>
+        <button class="outline">
+            Читати більше     
+            <img src="{{ url_for('home.static', filename = 'images/arrow.svg' ) }}" alt="" id="arrow">
+        </button>
+    </div>
+    <h2 class="title">Нове на сайті</h2>
+    <div id="newInfo">
+        {% for product in new_products %}
+            <div class="new-card">
+                <img src="{{ url_for('home.static', filename = 'images/'+ product.img + '.png' ) }}" alt="" id="mainImg">
+                <img src="{{ url_for('home.static', filename = 'images/'+ product.bg +'.jpg' ) }}" alt="" id="bg">
+                <div class="gradient" id="grad{{product.id}}"></div>
+                <div class="card-content">
+                    <div class="card-title">
+                        <h4>{{product.name}}</h4>
+                        <p>{{product.description}}</p>
+                    </div>
+                    <div class="card-buy">
+                        <p>from to ${{product.price}}</p>
+                        <button>
+                            Купити
+                            <img src="{{ url_for('home.static', filename = 'images/arrow_white.svg' ) }}" alt="" id="arrow">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        {% endfor%}
+    </div>
+    <div id="block-catalog">
+        <h2 class="title">Каталог</h2>
+        <div id="products">
+            {%for product in products %}
+                <div class="product">
+                    <img src="{{ url_for('shop_app.static', filename = product.get_path() ) }}" alt="">
+                </div>
+                <div class="text">
+                    <h5>{{product.name}}</h5>
+                    <p>{{product.price}}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <button class="fill">
+            Дивитись всі 
+            <img src="{{ url_for('home.static', filename = 'images/arrow_white.svg' ) }}" alt="" id="arrow">
+        </button>
+    </div>
 {%endblock%}

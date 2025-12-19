@@ -1,0 +1,122 @@
+#aboutUsBlock{
+    display: flex;
+    flex-direction: column;
+    align-items:center ;
+    gap: 2.8vh ;
+}
+
+.title{
+    color: #CDD5DD;
+    font-size: 5.17vh;
+    font-weight: bolder;
+}
+
+#aboutUsBlock p{
+    color: #0C122A;
+    font-size: 1.9vh;
+    text-align: center;
+}
+
+.outline{
+    font-size: 1.6vh;
+    color: #0C122A;
+    border: 1.5px solid #0C122A;
+    border-radius: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1.25vh 2.8vw;
+    gap: 1.1vw;
+    background-color: white;
+
+}
+
+#newInfo{
+    display: flex;;
+    flex-direction: row;
+    gap: 1.7vw;
+}
+
+.new-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    position: relative;
+    height: 30.3vw;
+    width:  30.3vw;
+    overflow: hidden;
+}
+
+.new-card #bg{
+    position: absolute;
+    height: 30.3vw;
+}
+
+.card-content{
+    display: flex;
+    flex-direction: column;
+    gap:  8.1vh;
+    padding: 2.8vh;
+    width:100% ; 
+    z-index: 3;
+    color: white; 
+}
+
+.card-title{
+    display: flex;
+    flex-direction: column;
+    gap : 0.9vh
+    
+}
+
+.card-title h4{
+    font-size: 5.17vh;
+}
+
+.card-title p{
+    font-size: 1.9vh;
+}
+
+.card-buy{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between ;
+}
+
+.card-buy p{
+    font-size: 1.6vh;
+}
+
+.card-buy button{
+    font-size: 1.6vh;
+    color: #ffffff;
+    border: 1.5px solid #ffffff;
+    border-radius: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1.4vh 1vw;
+    gap: 1vw;
+    background-color: unset;
+    /* кольори unset / transparent - прозорий колір */
+}
+
+.gradient{
+    position: absolute;
+    height: 64%;
+    width: 100%;
+}
+
+#grad1{
+    background: linear-gradient(180deg, rgba(255, 187, 46, 0) 0%, #FFBB2E 100%); 
+}
+
+#grad2{
+    background: linear-gradient(180deg, rgba(255, 187, 46, 0) 0%, #1A271B 100%); 
+    
+}
+
+#grad3{
+    background: linear-gradient(180deg, rgba(255, 187, 46, 0) 0%, #4F94A4 100%); 
+}

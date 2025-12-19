@@ -1,12 +1,12 @@
 import flask, flask_login
 from .models import *
 from project.db import *
+from shop_app.models import *
 
 def render_home():
-    if flask_login.current_user.is_authenticated:
-        print(flask_login.current_user)
-    
-    return flask.render_template("home.html")
+    new_products = NewProduct.query.all()
+    list_products = Product.query.limit(4)
+    return flask.render_template("home.html", new_products=new_products, products = list_products)
 
 def render_registation():
     if flask.request.method == 'POST':

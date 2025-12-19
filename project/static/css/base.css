@@ -12,6 +12,18 @@ body{
 
 main{
     min-height: 100vh;
+    z-index: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 21vh;
+    padding: 30vh 0;
+
+    /* 
+    padding: зверху-знизу  зліва-справа; 
+    */
+    
 }
 
 .ellipse {
@@ -23,8 +35,14 @@ main{
     z-index: 0;
 }
 
+img{
+    user-select: none;
+}
+
 
 /* 
+user-select: none; - прибирає можливість виділення
+
 aspect-ratio: ширина / висота -  відношення сторін, вказавши один розмір другий буде задано автоматично
 
 overflow-x або y - вказує що буде якщо вміст елемента вийде за рамки ( scroll або hiden )
