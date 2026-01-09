@@ -1,13 +1,43 @@
 {% extends "base.html"%}
 
-{% block title %}Reg{% endblock %}
+{% block title %}Реестрація{% endblock %}
 
 {% block content %}
-<h2>REG</h2>
-    <form method="post" enctype="multipart/form-data">
-        <input type="text" name="name" placeholder="name">
-        <input type="password" name="password" placeholder="password">
-        <input type="file" name="image" accept="image/*" placeholder="image"> 
-        <button>SEND</button>
-    </form>
+    <div id = 'cover'>
+        <div id = "modal">
+            <div id = "modal-header">
+                <h3><a href="/login">Авторизація</a> / Реестрація</h3>
+                <a href="/"><img src="{{ url_for('home.static', filename = 'images/close.svg' ) }}" alt=""></a>
+            </div>
+            <form method="post" id="modal-body">
+                <div id="input-container">
+                    <div class="input-block">
+                        <label for="form-name">Ім’я</label>
+                        <input type="text" id="form-name" name="name" placeholder="Введіть ім’я" required>
+                    </div>
+                    <div class="input-block">
+                        <label for="form-email">Email</label>
+                        <input type="email" name="email" id = "form-email" placeholder="Введіть email" required>
+                    </div>
+                    <div class="input-block">
+                        <label for="form-password">Пароль</label>
+                        <input type="text" id="form-password" name="name" placeholder="Введіть ім’я" required>
+                    </div>
+                    <div class="input-block">
+                        <label for="form-confirm-password">Підтвердження пароля</label>
+                        <input type="password" name ="confirm-password" id="form-confirm-password" placeholder="Повторіть пароль" required>
+                    </div>
+                    <a href="/login">Вже є акаунт? Увійти</a>
+                </div>
+
+                <div id="buttons-container">
+                    <div id="buttons">
+                        <button class="outline">Скасувати</button>
+                        <button class="fill">Зареєструватися</button>
+                    </div>
+                    <p id="confirming">При вході або реєстрації, я підтверджую згоду <br> з умовами <b>публічного договору<b></p>
+                </div>
+            </form>
+        </div>
+    </div>
 {%  endblock %}

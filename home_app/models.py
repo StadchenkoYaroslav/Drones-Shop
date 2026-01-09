@@ -6,6 +6,7 @@ class User(DB.Model, flask_login.UserMixin):
     name = DB.Column(DB.String)
     password = DB.Column(DB.String)
     is_admin = DB.Column(DB.Boolean , default = False)
+    email = DB.Column(DB.String)
     def __str__(self):
         return f"<User: {self.name}, id - {self.id}>"
 

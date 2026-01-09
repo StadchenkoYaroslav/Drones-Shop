@@ -20,7 +20,7 @@
                 <a href="/"><img src="{{ url_for('static', filename = 'images/Logo.svg' ) }}" alt=""></a>
                 <div id="profile">
                     <img src="{{ url_for('static', filename = 'images/Cart.svg' ) }}" alt="">
-                    <img src="{{ url_for('static', filename = 'images/Profile.svg' ) }}" alt="">
+                    <a href="/login"><img src="{{ url_for('static', filename = 'images/Profile.svg' ) }}" alt=""></a>
                 </div>
             </nav>
             {% block header %}{% endblock %}

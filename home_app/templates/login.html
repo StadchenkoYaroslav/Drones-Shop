@@ -1,14 +1,33 @@
-{% extends 'base.html' %}
+{% extends "base.html"%}
 
-{% block title %}
-    Login
-{% endblock %}
+{% block title %}Авторизація{% endblock %}
 
 {% block content %}
-    <h2>Авторизация</h2>
-    <form method="post">
-        <input type="text" name="name" placeholder="Имя">
-        <input type="password" name="password" placeholder="Пароль">
-        <button type="submit">Отправить</button>
-    </form>
-{% endblock %}
+    <div id = 'cover'>
+        <div id = "modal">
+            <div id = "modal-header">
+                <h3>Авторизація / <a href="/reg">Реестрація</a></h3>
+                <a href="/"><img src="{{ url_for('home.static', filename = 'images/close.svg' ) }}" alt=""></a>
+            </div>
+            <form method="post" id="modal-body">
+                <div id="input-container">
+                    <div class="input-block">
+                        <label for="form-name">Ім’я</label>
+                        <input type="text" id="form-name" name="name" placeholder="Введіть ім’я" required>
+                    </div>
+                    <div class="input-block">
+                        <label for="form-password">Пароль</label>
+                        <input type="text" id="form-password" name="name" placeholder="Введіть ім’я" required>
+                    </div>
+                </div>
+
+                <div id="buttons-container">
+                    <div id="buttons">
+                        <button class="outline">Скасувати</button>
+                        <button class="fill">Увійти</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{%  endblock %}

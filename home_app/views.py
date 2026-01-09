@@ -7,23 +7,20 @@ def render_home():
     new_products = NewProduct.query.all()
     list_products = Product.query.limit(4)
     return flask.render_template("home.html", new_products=new_products, products = list_products)
-
+    
 def render_registation():
     if flask.request.method == 'POST':
-        user_new = User(
-            name = flask.request.form.get('name'),
-            password = flask.request.form.get('password')
-        )
-        DATABASE.session.add(user_new)
-        DATABASE.session.commit()
-        image = flask.request.files.get("image")
-        # flask.request.files.get("ключ") - отримує файл з форми
-        # file.save(path) - зберігає отриманий файл за шляхом
-        image.save(
-            dst = os.path.abspath(os.path.join(__file__, "..", "static", "images", "profiles", f"{user_new.name}.png "))
-        )
+        if flask.request.form.get("password") == flask.request.form.get("confirm-password"):
+            user_new = User(
+                name = flask.request.form.get('name'),
+                password = flask.request.form.get('password'),
+                email  = flask.request.form.get("email")
+            )
+            DATABASE.session.add(user_new)
+            DATABASE.session.commit()
         
-        return flask.redirect("/login")
+            return flask.redirect("/login")
+    
     return flask.render_template('reg.html')
 
 def render_login():
