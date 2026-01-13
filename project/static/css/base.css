@@ -12,8 +12,8 @@
 }
 @font-face {
     font-family: "GT Walsheim Pro";
-    src: url("../font/meduim.woff2") format("woff2"), 
-         url("../font/meduim.woff") format("woff");
+    src: url("../font/medium.woff2") format("woff2"), 
+         url("../font/medium.woff") format("woff");
     font-weight: 500;
 }
 

@@ -9,40 +9,39 @@ def render_home():
     return flask.render_template("home.html", new_products=new_products, products = list_products)
     
 def render_registation():
-    if flask.request.method == 'POST':
-        if flask.request.form.get("password") == flask.request.form.get("confirm-password"):
-            user_new = User(
-                name = flask.request.form.get('name'),
-                password = flask.request.form.get('password'),
-                email  = flask.request.form.get("email")
-            )
-            DATABASE.session.add(user_new)
-            DATABASE.session.commit()
-        
-            return flask.redirect("/login")
+    if not flask_login.current_user.is_authenticated:
+        if flask.request.method == 'POST':
+            if flask.request.form.get("password") == flask.request.form.get("confirm-password"):
+                user_new = User(
+                    name = flask.request.form.get('name'),
+                    password = flask.request.form.get('password'),
+                    email  = flask.request.form.get("email")
+                )
+                DATABASE.session.add(user_new)
+                DATABASE.session.commit()
     
-    return flask.render_template('reg.html')
+                return flask.redirect("/login")
+        return flask.render_template('reg.html')
+    else:
+        return flask.redirect("/")
 
 def render_login():
-    if flask.request.method == 'POST':
-        user = User.query.filter_by(
-            name = flask.request.form.get('name'),
-            password = flask.request.form.get('password')   
-        ).first()
-        if user:
-            flask_login.login_user(user)
-            return flask.redirect("/")
+    if not flask_login.current_user.is_authenticated:
+        if flask.request.method == 'POST':
+            user = User.query.filter_by(
+                name = flask.request.form.get('name'),
+                password = flask.request.form.get('password')   
+            ).first()
+            if user:
+                flask_login.login_user(user)
+                return flask.redirect("/")
+                
+            else:
+                print('User does not exist')
             
-        else:
-            print('User does not exist')
-        
-    return flask.render_template("login.html")
-
+        return flask.render_template("login.html")
+    else:
+        return flask.redirect("/")
 def logout():
     flask_login.logout_user()
     return flask.redirect("/")
-
-def render_listusers():
-    users = User.query.all()
-
-    return flask.render_template('users.html', users = users)

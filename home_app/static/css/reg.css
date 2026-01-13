@@ -1,0 +1,114 @@
+#cover{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(12, 18, 42, 0.7);
+    z-index: 10;
+    position: fixed;
+    top: 0vh;
+    backdrop-filter: blur(10px);
+    /* 
+        backdrop-filter - фільтер до елементу ( blur, brightness та інші )
+    */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#modal{
+    width: 31vw;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    display: flex; 
+    flex-direction:column;
+}
+#modal-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.6vw;
+    height: 7vh;
+}
+#modal-header h3{
+    color:#0C122A;
+    font-size: 2.3vh;
+    font-weight: 500;
+}
+#modal-header a{
+    color: #9EA0AA;
+}
+#modal-header img{
+    height: 3.7vh;
+}
+
+#modal-body{
+    display: flex;
+    flex-direction: column;
+    gap: 5.1vh;
+    padding: 1.9vh 1.6vw;
+}
+
+#input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1.9vh;
+    width: 100%;
+}
+.input-block{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    width: 100%;
+}
+
+.input-block label, #input-container a, #confirming{
+    font-size: 1.6vh;
+    font-weight: 400;
+    color: #0C122A;
+}
+
+.input-block input{
+    height: 4.7vh;
+    border-radius: 4px;
+    border: 1px #CED0D4 solid;
+    padding-left: 1.1vh;
+    font-size: 1.8vh;
+    font-weight: 400;
+    color: #0C122A;
+}
+
+/* 
+input::placeholder - селектор, що задає стилі для placeholder
+*/
+
+.input-block input::placeholder{
+    color: #9EA0AA;
+}
+
+#input-container a{
+    color: #9EA0AA;
+    text-decoration: underline;
+}
+
+#buttons-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1.8vh;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 0.7vw;
+}
+
+#buttons button{
+    padding: 1.4vh 1.1vw;
+}
+
+#confirming {
+    color: #9EA0AA;
+}
+#confirming b{
+    color: #B62D11;
+}

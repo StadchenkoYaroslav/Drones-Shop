@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="{{url_for('static', filename = 'css/base.css')}}">
         <link rel="stylesheet" href="{{url_for('static',filename = 'css/footer.css')}}">
         <link rel="stylesheet" href="{{url_for('static',filename = 'css/header.css')}}">
-        
     </head>
     <body>
         <header>
@@ -59,5 +58,6 @@
             </div>
             
         </footer>
+        {% block modal %}{%endblock%}
     </body>
 </html> 

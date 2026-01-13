@@ -2,7 +2,11 @@
 
 {% block title %}Авторизація{% endblock %}
 
-{% block content %}
+{% block links%}
+<link rel="stylesheet" href ="{{ url_for('home.static', filename = 'css/reg.css') }}">
+{%endblock%}
+
+{% block modal %}
     <div id = 'cover'>
         <div id = "modal">
             <div id = "modal-header">
@@ -17,7 +21,7 @@
                     </div>
                     <div class="input-block">
                         <label for="form-password">Пароль</label>
-                        <input type="text" id="form-password" name="name" placeholder="Введіть ім’я" required>
+                         <input type="password" id="form-password" name="password" placeholder="Введіть пароль" required>
                     </div>
                 </div>
 
