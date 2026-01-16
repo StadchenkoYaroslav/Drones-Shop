@@ -34,6 +34,9 @@
     justify-content: center;
     gap: 2.8vh;
 }
+/* 
+  flex-wrap: wrap; - переносить на наступний рядок дочірні елементи, що не вміщуються за розміром
+*/
 
 #paginations{
     display: flex;
@@ -66,4 +69,13 @@ opacity - прозорість елементу ( від 0 до 1 )
 
 .disabled{
     opacity: 0.5;
+}
+
+main{
+    padding: 17.7vh;
+    gap: 5vh;
+}
+
+.product{
+    width: 322px;
 }

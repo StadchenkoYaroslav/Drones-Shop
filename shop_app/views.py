@@ -1,6 +1,13 @@
 import flask, os, flask_login, math
 from .models import *
 
+def count_cart_product():
+    products = flask.request.cookies.get("list_products")
+    if products is None:
+        return 0
+    list_id = products.split("|")
+    return len(list_id)
+
 def creat_pagination_buttons(count_page: int, curent_page: int) -> list:
     if count_page <= 7:
         return list(range(1, count_page + 1 ))
@@ -52,7 +59,8 @@ def render_catalog():
         products = all_products, 
         page=page_num,
         count_page=count_page,
-        pagination = creat_pagination_buttons(count_page, page_num)
+        pagination = creat_pagination_buttons(count_page, page_num),
+        count_cart = count_cart_product()
     )
 
 
@@ -83,7 +91,7 @@ def render_change(id: int):
                     dst = os.path.abspath(os.path.join(__file__, '..', 'static', 'images', "products", f'{product.id}.png'))
                 )
             return flask.redirect('/catalog')
-        return flask.render_template("change.html", product = product)
+        return flask.render_template("change.html", product = product, count_cart = count_cart_product())
         
 def buy(id: int):
     product = Product.query.get(id)

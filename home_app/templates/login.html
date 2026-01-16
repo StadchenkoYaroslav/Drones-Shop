@@ -6,6 +6,19 @@
 <link rel="stylesheet" href ="{{ url_for('home.static', filename = 'css/reg.css') }}">
 {%endblock%}
 
+{%block header%}
+    <div id="title">
+        <h1>Технології</h1>
+        <h1>Які змінюють реальність</h1>
+    </div>
+    <img src="{{ url_for('static', filename = 'images/Drone.svg' ) }}" alt="" id="drone">
+    <div id = "to-catalog" >
+        <p>Передові технології в одному місці. <br> Обирай найкраще для найважливішого.</p>
+        <button class = "fill">До каталогу</button>
+    </div>
+    <div class="ellipse" id="elipse-header"></div>
+{%endblock%}
+
 {% block modal %}
     <div id = 'cover'>
         <div id = "modal">

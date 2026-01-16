@@ -2,11 +2,12 @@ import flask, flask_login
 from .models import *
 from project.db import *
 from shop_app.models import *
+from shop_app.views import count_cart_product
 
 def render_home():
     new_products = NewProduct.query.all()
     list_products = Product.query.limit(4)
-    return flask.render_template("home.html", new_products=new_products, products = list_products)
+    return flask.render_template("home.html", new_products=new_products, products = list_products, count_cart = count_cart_product())
     
 def render_registation():
     if not flask_login.current_user.is_authenticated:
@@ -21,7 +22,7 @@ def render_registation():
                 DATABASE.session.commit()
     
                 return flask.redirect("/login")
-        return flask.render_template('reg.html')
+        return flask.render_template('reg.html', count_cart = count_cart_product())
     else:
         return flask.redirect("/")
 
@@ -39,7 +40,7 @@ def render_login():
             else:
                 print('User does not exist')
             
-        return flask.render_template("login.html")
+        return flask.render_template("login.html", count_cart = count_cart_product())
     else:
         return flask.redirect("/")
 def logout():

@@ -3,10 +3,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}{% endblock %}</title>
-        {% block links %}{% endblock %}
         <link rel="stylesheet" href="{{url_for('static', filename = 'css/base.css')}}">
         <link rel="stylesheet" href="{{url_for('static',filename = 'css/footer.css')}}">
         <link rel="stylesheet" href="{{url_for('static',filename = 'css/header.css')}}">
+        {% block links %}{% endblock %}
     </head>
     <body>
         <header>
@@ -16,10 +16,19 @@
                     <a href="#" class="link">ПРО НАС</a>
                     <a href="#" class="link">КОНТАКТИ</a>
                 </div> 
-                <a href="/"><img src="{{ url_for('static', filename = 'images/Logo.svg' ) }}" alt=""></a>
+                <a href="/"><img id = "logo" src="{{ url_for('static', filename = 'images/Logo.svg') }}" alt=""></a>
                 <div id="profile">
-                    <img src="{{ url_for('static', filename = 'images/Cart.svg' ) }}" alt="">
-                    <a href="/login"><img src="{{ url_for('static', filename = 'images/Profile.svg' ) }}" alt=""></a>
+                    <a href="#" id="cart-block">
+                        <img src="{{ url_for('static', filename = 'images/Cart.svg') }}" alt="">
+                        {% if count_cart > 0 %}
+                            {% if count_cart >= 10 %}
+                                <p id="count-cart">9+</p>
+                            {% else %}
+                                <p id="count-cart">{{ count_cart }}</p>
+                            {% endif %}
+                        {% endif %}
+                    </a>
+                    <a href="/login"><img src="{{ url_for('static', filename = 'images/Profile.svg') }}" alt=""></a>
                 </div>
             </nav>
             {% block header %}{% endblock %}

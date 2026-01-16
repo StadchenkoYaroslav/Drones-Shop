@@ -35,7 +35,7 @@ Catalog
                         <h5>{{product.name}}</h5>
                         <p>{{product.price}} ₴</p>
                     </div>
-                    <a href="/buy/{{product.id}}"><button>Купити</button></a>
+                    <a href="/buy/{{product.id}}" class="buy-button"><img src="{{ url_for('shop_app.static', filename = 'images/buy.svg' ) }}" alt=""></a>
                 </div>
                 {% if admin %}
                     <a href="/delete/{{ product.id }}">
